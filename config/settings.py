@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken',
+    'dj_rest_auth',  # pip install dj-rest-auth
 
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',
@@ -140,6 +142,10 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
         # 'rest_framework.permissions.IsAdminUser',
     ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
 }
 
 CORS_ORIGIN_LIST = (
